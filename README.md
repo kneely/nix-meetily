@@ -14,6 +14,51 @@ Meetily is an open-source meeting transcription and analysis application that pr
 
 This flake packages both the backend server (Python FastAPI + Whisper.cpp) and frontend application for easy installation with Nix, particularly for nix-darwin on macOS.
 
+## Installation
+
+### Prerequisites
+
+Before installing Meetily with Nix, ensure you have:
+
+- **Nix package manager** with flakes enabled
+- **macOS 10.15+** (for frontend app) or **Linux** (backend only)
+- **8GB+ RAM** (16GB+ recommended for larger models)
+- **4GB+ free disk space**
+
+### Enable Nix Flakes
+
+If you haven't already enabled flakes:
+
+```bash
+# Create nix config directory
+mkdir -p ~/.config/nix
+
+# Enable experimental features
+echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+```
+
+### Quick Installation
+
+The fastest way to get started:
+
+```bash
+# Run the installation script
+curl -fsSL https://raw.githubusercontent.com/kneely/nix-meetily/main/install.sh | bash
+```
+
+### Manual Installation
+
+For more control over the installation process:
+
+```bash
+# Install directly with nix profile
+nix profile install github:kneely/nix-meetily
+
+# Or install specific components
+nix profile install github:kneely/nix-meetily#meetily-backend
+nix profile install github:kneely/nix-meetily#whisper-cpp-meetily
+```
+
 ## Quick Start
 
 ### Installation with nix-darwin

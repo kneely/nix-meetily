@@ -280,13 +280,14 @@
             # Wait a moment for whisper server to start
             sleep 2
 
-            # Start Python backend
-            echo -e "[INFO] Starting Python backend..."
-            cd "$BACKEND_DIR"
+            # Fix the Python import paths and ensure app can find its modules
+            echo -e "[INFO] Setting up Python environment..."
             
             # Set Python path to include the app directory
-            export PYTHONPATH="$BACKEND_DIR:$PYTHONPATH"
+            export PYTHONPATH="$BACKEND_DIR:$BACKEND_DIR/app:$PYTHONPATH"
             
+            # Start the FastAPI application
+            cd "$BACKEND_DIR"
             ${pythonEnv}/bin/python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT_FASTAPI &
             PYTHON_PID=$!
 
