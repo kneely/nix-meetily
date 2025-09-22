@@ -353,9 +353,6 @@
 
           nativeBuildInputs = with pkgs; [ unzip p7zip ];
 
-          # Only build on macOS
-          meta.platforms = pkgs.lib.platforms.darwin;
-
           unpackPhase = ''
             unzip $src
             cd dmg
