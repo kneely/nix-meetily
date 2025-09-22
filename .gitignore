@@ -1,0 +1,28 @@
+# Nix build artifacts
+result
+result-*
+
+# Nix development artifacts
+.direnv/
+.envrc
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor artifacts
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Logs
+*.log
+
+# Personal configuration
+config.local.nix
